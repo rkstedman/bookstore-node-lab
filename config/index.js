@@ -1,14 +1,10 @@
 var config = {};
 
+var localDbUri = 'mongodb://localhost:27017/bookdb';
+  
 config.database = {
-  name: 'bookdb',
-  host: 'localhost',
-  port: '27017'
-}
-config.database.uri = 'mongodb://' 
-  + config.database.host + ':' 
-  + config.database.port + '/' 
-  + config.database.name;
+  uri: process.env.MONGOLAB_URI || localDbUri
+};
   
 config.errors = {
   database_error: {
