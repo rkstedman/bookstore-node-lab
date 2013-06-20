@@ -2,14 +2,14 @@ doctype 5
 html
   head
     title Node Bookshelf
-    link(rel='stylesheet', href='/stylesheets/foundation.min.css')
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel="stylesheet", href="/stylesheets/foundation.min.css")
+    link(rel="stylesheet", href="/stylesheets/style.css")
   body
     //- checking to see if page undefined
     //-  prevents app from crashing
-    //- if it's not passed in as variable
-    - if(typeof(page) === 'undefined')
-      - var page = '';
+    //- if it"s not passed in as variable
+    - if(typeof(page) === "undefined")
+      - var page = "";
   
     //- navigation
     .row
@@ -25,14 +25,14 @@ html
           section.top-bar-section
             ul.title-area.right
               li.has-button 
-                - if(page === 'new')
-                  a.small.button(href='/') Cancel
-                - else if(page === 'book')
-                  a.small.button(href='/') Go to shelf
+                - if(page === "new" || page === "edit")
+                  a.small.button.alert(href="/") Cancel
+                - else if(page === "book")
+                  a.small.button(href="/") Go to shelf
                 - else
-                  a.small.button(href='/new') Add book
-    
-        - if (typeof(error) !== 'undefined')
+                  a.small.button(href="/books/new") Add book
+        div#alert
+        - if (typeof(error) !== "undefined")
           div.alert-box.alert #{error.message}
     //- main content
     block content
@@ -47,9 +47,10 @@ html
           .large-6.columns
             ul.inline-list.right
               li
-                a(href='http://www.startupinstitute.com/') Startup Institute
+                a(href="http://www.startupinstitute.com/") Startup Institute
     
-    script(src='//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js')
-    script(src='/javascripts/foundation.min.js')
+    script(src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js")
+    script(src="/javascripts/foundation.min.js")
+    script(src="/javascripts/book.js")
     script
       $(document).foundation();
