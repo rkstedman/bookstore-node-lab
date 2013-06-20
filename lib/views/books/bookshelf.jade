@@ -4,7 +4,7 @@ block content
   .row
     .large-12.columns
       .row
-        - if (typeof(error) === "undefined")
+        - if (typeof(books) !== "undefined")
           each book in books           
             .large-3.small-6.columns
               a(href="/books/#{book.isbn}")
